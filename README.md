@@ -106,3 +106,9 @@ git push heroku master
 
 Your application should now be deployed to Heroku!
 For further instructions see the [official documentation](https://devcenter.heroku.com/articles/clojure).
+
+
+## NB
+This project was created following this guide: https://libraries.io/github/reagent-project/reagent-template
+
+using this command: lein new reagent xlson-reframe +sass +test
