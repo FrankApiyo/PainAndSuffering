@@ -4,6 +4,7 @@
    [reagent.dom :as rdom]
    [reagent.session :as session]
    [reitit.frontend :as reitit]
+   [goog.net.cookies :as cookies]
    [clerk.core :as clerk]
    [accountant.core :as accountant]))
 
@@ -28,11 +29,21 @@
 
 (defn home-page []
   (fn []
+    (let [token (cookies/get "test-cookie")
+          len (count token)]
     [:span.main
-     [:h1 "Welcome to xlson-reframe"]
-     [:ul
-      [:li [:a {:href (path-for :items)} "Items of xlson-reframe"]]
-      [:li [:a {:href "/broken/link"} "Broken link"]]]]))
+     [:form {:action "/"
+             :method "POST"
+             :encType "multipart/form-data"}
+      [:input {:id "__anti-forgery-token"
+               :name "__anti-forgery-token"
+               :type "hidden"
+               :value  (cookies/get "anti-forgery-token")}]
+      [:input {:type "file"
+               :name "file"
+               :id "file"}]
+      [:input {:type "submit"
+               :value "upload"}]]])))
 
 
 

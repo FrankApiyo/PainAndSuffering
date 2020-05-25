@@ -1,114 +1,12 @@
-# xlson-reframe
+This is a repo I created to demonstrate the suffering I have gone through trying to get a file to upload to my backend.
 
-This is the xlson-reframe project.
+I have given up and I'm going to use django for my backend
 
-## Development mode
+The first Issue I get is "invalid csrf token". I have followed this tutorial to try to fix this  https://github.com/edbond/CSRF and tried many more other things...
 
-To start the Figwheel compiler, navigate to the project folder and run the following command in the terminal:
+The other is that, when I remove the wrap-defaults middleware, then the invalid csrf-token issue goes away; problem with this is that now, the server does not require csrf token which is insecure. on the other hand it seems the file uploaded is not sent to the server... Please help me debug this or show me some other documentation I can read...
 
-```
-lein figwheel
-```
+I have gone through the following documentation up to this moment.... 
 
-Figwheel will automatically push cljs changes to the browser. The server will be available at [http://localhost:3449](http://localhost:3449) once Figwheel starts up. 
-
-Figwheel also starts `nREPL` using the value of the `:nrepl-port` in the `:figwheel`
-config found in `project.clj`. By default the port is set to `7002`.
-
-The figwheel server can have unexpected behaviors in some situations such as when using
-websockets. In this case it's recommended to run a standalone instance of a web server as follows:
-
-```
-lein do clean, run
-```
-
-The application will now be available at [http://localhost:3000](http://localhost:3000).
-
-### Style compilation
-To compile [sass](https://github.com/Deraen/sass4clj) sources and then watch for changes and recompile until interrupted, run
-```
-lein sass4clj auto
-```
-
-### Optional development tools
-
-Start the browser REPL:
-
-```
-$ lein repl
-```
-The Jetty server can be started by running:
-
-```clojure
-(start-server)
-```
-and stopped by running:
-```clojure
-(stop-server)
-```
-
-## Running the tests
-To run [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) tests using headless chrome install karma and its plugins:
-
-```
-npm install -g karma-cli
-npm install karma karma-cljs-test karma-chrome-launcher --save-dev
-lein doo chrome-headless test once
-```
-
-For other environments please check [doo's documentation](https://github.com/bensu/doo#setting-up-environments).
-
-
-For installation instructions of PhantomJS, please see [this](http://phantomjs.org/download.html).
-
-## Building for release
-
-```
-lein do clean, uberjar
-```
-
-## Deploying to Heroku
-
-Make sure you have [Git](http://git-scm.com/downloads) and [Heroku toolbelt](https://toolbelt.heroku.com/) installed, then simply follow the steps below.
-
-Optionally, test that your application runs locally with foreman by running.
-
-```
-foreman start
-```
-
-Now, you can initialize your git repo and commit your application.
-
-```
-git init
-git add .
-git commit -m "init"
-```
-create your app on Heroku
-
-```
-heroku create
-```
-
-optionally, create a database for the application
-
-```
-heroku addons:add heroku-postgresql
-```
-
-The connection settings can be found at your [Heroku dashboard](https://dashboard.heroku.com/apps/) under the add-ons for the app.
-
-deploy the application
-
-```
-git push heroku master
-```
-
-Your application should now be deployed to Heroku!
-For further instructions see the [official documentation](https://devcenter.heroku.com/articles/clojure).
-
-
-## NB
-This project was created following this guide: https://libraries.io/github/reagent-project/reagent-template
-
-using this command: lein new reagent xlson-reframe +sass +test
+1. https://luminusweb.com/docs/routes.html#handling_file_uploads
+2. https://github.com/ring-clojure/ring/wiki/File-Uploads
