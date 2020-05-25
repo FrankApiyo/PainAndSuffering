@@ -1,6 +1,6 @@
 This is a repo I created to demonstrate the suffering I have gone through trying to get a file to upload to my backend.
 
-I have given up and I'm going to use django for my backend
+I have given up and I'm going to use django for my backend(for now, this is not something I'd like obviously....)
 
 The first Issue I get is "invalid csrf token". I have followed this tutorial to try to fix this  https://github.com/edbond/CSRF and tried many more other things...
 
@@ -10,3 +10,4 @@ I have gone through the following documentation up to this moment....
 
 1. https://luminusweb.com/docs/routes.html#handling_file_uploads
 2. https://github.com/ring-clojure/ring/wiki/File-Uploads
+3. Examples on the reitit repo
